@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f855e6bc.css",
+    "main.js": "/static/js/main.d68da5fb.js",
+    "static/js/144.3bb86f47.chunk.js": "/static/js/144.3bb86f47.chunk.js",
+    "static/media/bg.jpeg": "/static/media/bg.37ac7e6905c9a8f93b4c.jpeg",
+    "static/media/thinkAI.png": "/static/media/thinkAI.f49bdc81c1fff743bdf5.png",
+    "static/media/thinkAIlogo.png": "/static/media/thinkAIlogo.bd18d63b97e8210b2ff7.png",
+    "index.html": "/index.html",
+    "main.f855e6bc.css.map": "/static/css/main.f855e6bc.css.map",
+    "main.d68da5fb.js.map": "/static/js/main.d68da5fb.js.map",
+    "144.3bb86f47.chunk.js.map": "/static/js/144.3bb86f47.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.d68da5fb.js"
+  ]
+}
