@@ -66,7 +66,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <Layout style={{ minHeight: "100vh" }}>
+      <Layout style={{ minHeight: "101vh" }}>
         <Sider
           style={{ backgroundColor: "#E1B6E6" }}
           collapsible
