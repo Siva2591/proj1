@@ -233,10 +233,6 @@ app.delete("/api/delete-data/:orderId", async (req, res) => {
   }
 });
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
-});
-
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
