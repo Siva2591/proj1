@@ -35,7 +35,7 @@ const LoginPage = () => {
         <Form
           form={form}
           onFinish={handleSubmit}
-          style={{ width: "400px" }}
+          style={{ width: "4001px" }}
           layout="vertical"
         >
           <Form.Item
