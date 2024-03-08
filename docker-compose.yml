@@ -19,5 +19,5 @@ services:
       - client
 
 networks:
-  touchlessap-network:
+  sample-network:
     driver: bridge
