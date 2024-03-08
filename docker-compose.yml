@@ -6,7 +6,7 @@ services:
     ports:
       - "80:80"
     networks:
-      - touchlessap-network
+      - sample-network
 
   server:
     build:
@@ -14,7 +14,7 @@ services:
     ports:
       - "3000:3000"
     networks:
-      - touchlessap-network
+      - sample-network
     depends_on:
       - client
 
