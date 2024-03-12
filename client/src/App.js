@@ -56,7 +56,6 @@
 // export default App;
 
 
-
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import ReactGA from 'react-ga';
@@ -68,20 +67,25 @@ import Protected from './components/protected';
 
 // Initialize Google Analytics
 const TRACKING_ID = 'G-T0TQC4PPCN'; // Replace with your own tracking ID
-ReactGA.initialize(TRACKING_ID);
-
-// Track page views on route changes
-const TrackPageViews = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }, [location]);
-
-  return null;
-};
 
 function App() {
+  useEffect(() => {
+    ReactGA.initialize(TRACKING_ID);
+    // This line is for page view tracking on initial load
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
+  // Track page views on route changes
+  const TrackPageViews = () => {
+    const location = useLocation();
+
+    useEffect(() => {
+      ReactGA.pageview(location.pathname + location.search);
+    }, [location]);
+
+    return null;
+  };
+
   return (
     <div className="App">
       <Router>
