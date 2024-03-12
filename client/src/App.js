@@ -55,23 +55,37 @@
 
 // export default App;
 
-
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import ReactGA from 'react-ga';
 import LoginPage from './Pages/LoginPage';
 import Cards from './Pages/Home';
 import Process from './Pages/Process';
 import Settings from './Pages/Settings';
 import Protected from './components/protected';
-import RouteChangeTracker from './RouteChangeTracker';
+
+// Initialize Google Analytics
+const TRACKING_ID = 'G-T0TQC4PPCN'; // Replace with your own tracking ID
+ReactGA.initialize(TRACKING_ID);
+
+// Track page views on route changes
+const TrackPageViews = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, [location]);
+
+  return null;
+};
 
 function App() {
   return (
     <div className="App">
       <Router>
+        {/* RouteChangeTracker to track page views */}
         <Routes>
-        <Route path="*" element={<TrackPageViews />} />
-          <Route element={<RouteChangeTracker />} />
+          <Route element={<TrackPageViews />} />
           <Route path="/" element={<LoginPage />} />
           <Route
             path="*"
