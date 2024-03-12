@@ -55,6 +55,10 @@
 
 // export default App;
 
+
+
+
+
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import ReactGA from 'react-ga';
@@ -79,60 +83,56 @@ const TrackPageViews = () => {
   return null;
 };
 
+// Function to track login event
+const trackLogin = () => {
+  ReactGA.event({
+    category: 'User',
+    action: 'Logged In'
+  });
+};
+
 function App() {
   return (
     <div className="App">
       <Router>
-        {/* RouteChangeTracker to track page views */}
         <Routes>
-          <Route element={<TrackPageViews />} />
-          <Route path="/" element={<LoginPage />} />
-          <Route
-            path="*"
-            element={
-              <div>
-                <ProtectedRoutes />
-              </div>
-            }
-          />
+          <Route path="/" element={<LoginPage onLogin={trackLogin} />} />
+          <Route path="*" element={<TrackPageViews />} />
         </Routes>
+
+        <div style={{ display: 'flex' }}>
+          <div style={{ width: '100%' }}>
+            <Routes>
+              <Route
+                path="/home"
+                element={
+                  <Protected>
+                    <Cards />
+                  </Protected>
+                }
+              />
+              <Route
+                path="/tlprocess"
+                element={
+                  <Protected>
+                    <Process />
+                  </Protected>
+                }
+              />
+              <Route
+                path="/settings"
+                element={
+                  <Protected>
+                    <Settings />
+                  </Protected>
+                }
+              />
+            </Routes>
+          </div>
+        </div>
       </Router>
     </div>
   );
 }
-
-// Protected routes component
-const ProtectedRoutes = () => (
-  <div style={{ display: 'flex' }}>
-    <div style={{ width: '100%' }}>
-      <Routes>
-        <Route
-          path="/home"
-          element={
-            <Protected>
-              <Cards />
-            </Protected>
-          }
-        />
-        <Route
-          path="/tlprocess"
-          element={
-            <Protected>
-              <Process />
-            </Protected>
-          }
-        />
-        <Route
-          path="/settings"
-          element={
-            <Protected>
-              <Settings />
-            </Protected>
-          }
-        />
-      </Routes>
-    </div>
-  </div>
-);
 
 export default App;
